@@ -17,13 +17,25 @@ document
     // Send email using EmailJS
     emailjs.send("service_3nfl7vo", "template_svwo1kr", formData).then(
       function (response) {
-        toastr.success("Message sent successfully!"); // Success callback
+        Toastify({
+          text: "Message sent successfully!",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "#4caf50",
+        }).showToast(); // Success callback
         (document.getElementById("name").value = ""),
           (document.getElementById("email").value = ""),
           (document.getElementById("message").value = "");
       },
       function (error) {
-        toastr.error("Failed to send message: " + error.text); // Error callback
+        Toastify({
+          text: "Message was not sent. Something went wrong!!!",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+        }).showToast(); // Error callback
       }
     );
   });
